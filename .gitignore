@@ -45,3 +45,4 @@ Temporary Items
 *.class
 *.jar
 target/*
+target/classes/com/mycompany/loginApp/entities/User.class
