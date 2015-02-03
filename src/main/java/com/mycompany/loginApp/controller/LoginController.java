@@ -34,4 +34,8 @@ public class LoginController {
         return "login";
     }
     
+//    @RequestMapping(value = "/connect/twitter")
+//    public String connectTwitter(){
+//        return "twitter";
+//    }
 }
