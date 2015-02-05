@@ -5,6 +5,7 @@
  */
 package com.mycompany.loginApp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.Entity;
@@ -15,6 +16,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import org.hibernate.annotations.Fetch;
 //import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -36,6 +38,7 @@ public class User {
     
     private String email;
     
+    @JsonIgnore
     @ManyToMany
     @JoinTable
     private List<Role> roles;

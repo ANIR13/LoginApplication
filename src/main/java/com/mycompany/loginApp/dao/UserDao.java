@@ -5,10 +5,13 @@
  */
 package com.mycompany.loginApp.dao;
 
+import com.mycompany.loginApp.entities.Role;
 import com.mycompany.loginApp.entities.User;
 import java.util.List;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.data.repository.cdi.Eager;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,9 +32,13 @@ public class UserDao{
         sessionFactory.getCurrentSession().save(user);
     }
     
-
+    
     public List<User> getAll(){
-        return sessionFactory.getCurrentSession().createQuery("from User").list();
+        List<User> users =  sessionFactory.getCurrentSession().createQuery("from User").list();
+        for (User user:users){
+            user.getRoles().size();
+        }
+        return users;
     }
     
     
